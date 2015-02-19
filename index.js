@@ -21,7 +21,7 @@ var post = function(url, params) {
 		    if (http.readyState == 4 && http.status == 200) {
 		        result = JSON.parse(http.response);
 		    }
-		}
+		};
 		http.send(params);
 		
 		return result;
