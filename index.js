@@ -1,6 +1,9 @@
 
 /**
  * http post request
+ * @param url    {String} Newsletter2Go API URL
+ * @param params {String} serialized parameter string
+ * @return       {Object} API response object
  */
  
 var post = function(url, params) {
@@ -31,6 +34,8 @@ var post = function(url, params) {
 
 /**
  * serialize parameter object
+ * @param params {Object} parameter object
+ * @return       {String} serialized parameter string
  */
 
 var serialize = function(obj) {
@@ -54,6 +59,8 @@ var serialize = function(obj) {
 
 /**
  * send email
+ * @param params {Object} parameter object
+ * @return       {Object} API response object
  */
  
 var sendEmail = function(params) {
