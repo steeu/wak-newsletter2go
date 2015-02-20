@@ -1,5 +1,162 @@
 
-var baseURL = 'https://www.newsletter2go.de/de/api/';
+/**
+ * newsletter to go api https://www.newsletter2go.ch/features/newsletter-api-rest/
+ * @param key    {String} Newsletter2Go API key
+ */
+ 
+Newsletter2Go = function(key) {
+	try {
+		this.host = 'https://www.newsletter2go.de';
+		this.key = key;		
+	} catch (e) {
+		WAKTOOLS.log(e);
+		return e;
+	}
+};
+
+
+/**
+ * create newsletter
+ * @param params {Object} parameter object
+ * @return       {Object} API response object
+ */
+ 
+Newsletter2Go.prototype.createNewsletter = function(params) {
+	try {
+		return this.post(this.host + '/de/api/create/newsletter/', this.serialize(params))
+	} catch (e) {
+		WAKTOOLS.log(e);
+		return e;
+	}
+};
+
+
+/**
+ * create receipent
+ * @param params {Object} parameter object
+ * @return       {Object} API response object
+ */
+ 
+Newsletter2Go.prototype.createRecipient = function(params) {
+	try {
+		return this.post(this.host + '/de/api/create/recipient/', this.serialize(params))
+	} catch (e) {
+		WAKTOOLS.log(e);
+		return e;
+	}
+};
+
+
+/**
+ * delete all groups from newsletter
+ * @param params {Object} parameter object
+ * @return       {Object} API response object
+ */
+ 
+Newsletter2Go.prototype.deleteAllGroupsFromNewsletter = function(params) {
+	try {
+		return this.post(this.host + '/de/api/delete/allgroupsfromnewsletter/', this.serialize(params))
+	} catch (e) {
+		WAKTOOLS.log(e);
+		return e;
+	}
+};
+
+
+/**
+ * delete receipent
+ * @param params {Object} parameter object
+ * @return       {Object} API response object
+ */
+ 
+Newsletter2Go.prototype.deleteRecipient = function(params) {
+	try {
+		return this.post(this.host + '/de/api/create/recipient/', this.serialize(params))
+	} catch (e) {
+		WAKTOOLS.log(e);
+		return e;
+	}
+};
+
+
+/**
+ * get groups
+ * @param params {Object} parameter object
+ * @return       {Object} API response object
+ */
+ 
+Newsletter2Go.prototype.getGroups = function(params) {
+	try {
+		return this.post(this.host + '/de/api/get/groups/', this.serialize(params))
+	} catch (e) {
+		WAKTOOLS.log(e);
+		return e;		
+	}
+};
+
+
+/**
+ * get groups by newsletter
+ * @param params {Object} parameter object
+ * @return       {Object} API response object
+ */
+ 
+Newsletter2Go.prototype.getGroupsByNewsletter = function(params) {
+	try {
+		return this.post(this.host + '/de/api/get/groupsbynewsletter/', this.serialize(params))
+	} catch (e) {
+		WAKTOOLS.log(e);
+		return e;
+	}
+};
+
+
+/**
+ * get newsletter
+ * @param params {Object} parameter object
+ * @return       {Object} API response object
+ */
+ 
+Newsletter2Go.prototype.getNewsletter = function(params) {
+	try {
+		return this.post(this.host + '/de/api/get/newsletter/', this.serialize(params))
+	} catch (e) {
+		WAKTOOLS.log(e);
+		return e;
+	}
+};
+
+
+/**
+ * get all newsletters
+ * @param params {Object} parameter object
+ * @return       {Object} API response object
+ */
+ 
+Newsletter2Go.prototype.getNewsletters = function(params) {
+	try {
+		return this.post(this.host + '/de/api/get/newsletters/', this.serialize(params))
+	} catch (e) {
+		WAKTOOLS.log(e);
+		return e;
+	}
+};
+
+
+/**
+ * get statistics
+ * @param params {Object} parameter object
+ * @return       {Object} API response object
+ */
+ 
+Newsletter2Go.prototype.getStatistics = function(params) {
+	try {
+		return this.post(this.host + '/de/api/get/statistics/', this.serialize(params))
+	} catch (e) {
+		WAKTOOLS.log(e);
+		return e;
+	}
+};
 
 
 /**
@@ -9,7 +166,7 @@ var baseURL = 'https://www.newsletter2go.de/de/api/';
  * @return       {Object} API response object
  */
  
-var post = function(url, params) {
+Newsletter2Go.prototype.post = function(url, params) {
 	try {
 		var http = new XMLHttpRequest(),
 			result;
@@ -36,106 +193,17 @@ var post = function(url, params) {
 
 
 /**
- * serialize parameter object
- * @param params {Object} parameter object
- * @return       {String} serialized parameter string
- */
-
-var serialize = function(obj) {
-	try {
-		var str = [];
-		
-		// traverse object
-		for(var p in obj) {
-			if (obj.hasOwnProperty(p)) {
-				str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
-			}
-		}
-			
-		return str.join("&");
-	} catch (e) {
-		WAKTOOLS.log(e);
-		return e;	
-	}
-}
-
-
-/**
  * send email
  * @param params {Object} parameter object
  * @return       {Object} API response object
  */
  
-var sendEmail = function(params) {
+Newsletter2Go.prototype.sendEmail = function(params) {
 	try {
-		return post(baseURL + 'send/email/', serialize(params))
+		return this.post(this.host + '/de/api/send/email/', this.serialize(params))
 	} catch (e) {
 		WAKTOOLS.log(e);
-		return e;		
-	}
-};
-
-
-/**
- * create newsletter
- * @param params {Object} parameter object
- * @return       {Object} API response object
- */
- 
-var createNewsletter = function(params) {
-	try {
-		return post(baseURL + 'create/newsletter/', serialize(params))
-	} catch (e) {
-		WAKTOOLS.log(e);
-		return e;		
-	}
-};
-
-
-/**
- * set group to newsletter
- * @param params {Object} parameter object
- * @return       {Object} API response object
- */
- 
-var setGroupToNewsletter = function(params) {
-	try {
-		return post(baseURL + 'set/grouptonewsletter/', serialize(params))
-	} catch (e) {
-		WAKTOOLS.log(e);
-		return e;		
-	}
-};
-
-
-/**
- * get groups by newsletter
- * @param params {Object} parameter object
- * @return       {Object} API response object
- */
- 
-var getGroupsByNewsletter = function(params) {
-	try {
-		return post(baseURL + 'get/groupsbynewsletter/', serialize(params))
-	} catch (e) {
-		WAKTOOLS.log(e);
-		return e;		
-	}
-};
-
-
-/**
- * delete all groups from newsletter
- * @param params {Object} parameter object
- * @return       {Object} API response object
- */
- 
-var deleteAllGroupsFromNewsletter = function(params) {
-	try {
-		return post(baseURL + 'delete/allgroupsfromnewsletter/', serialize(params))
-	} catch (e) {
-		WAKTOOLS.log(e);
-		return e;		
+		return e;
 	}
 };
 
@@ -146,70 +214,58 @@ var deleteAllGroupsFromNewsletter = function(params) {
  * @return       {Object} API response object
  */
  
-var sendNewsletter = function(params) {
+Newsletter2Go.prototype.sendNewsletter = function(params) {
 	try {
-		return post(baseURL + 'send/newsletter/', serialize(params))
+		return this.post(this.host + '/de/api/send/newsletter/', this.serialize(params))
 	} catch (e) {
 		WAKTOOLS.log(e);
-		return e;		
+		return e;
 	}
 };
 
 
 /**
- * get statistics
+ * serialize parameter object
  * @param params {Object} parameter object
- * @return       {Object} API response object
+ * @return       {String} serialized parameter string
  */
- 
-var getStatistics = function(params) {
+
+Newsletter2Go.prototype.serialize = function(params) {
 	try {
-		return post(baseURL + 'get/statistics/', serialize(params))
+		var str = [],
+			params = params || {};
+
+		// add api key to params
+		params.key = this.key;
+		// traverse object
+		for(var p in params) {
+			if (params.hasOwnProperty(p)) {
+				str.push(encodeURIComponent(p) + "=" + encodeURIComponent(params[p]));
+			}
+		}
+			
+		return str.join("&");
 	} catch (e) {
 		WAKTOOLS.log(e);
-		return e;		
+		return e;
 	}
 };
 
 
 /**
- * create receipent
+ * set group to newsletter
  * @param params {Object} parameter object
  * @return       {Object} API response object
  */
  
-var createRecipient = function(params) {
+Newsletter2Go.prototype.setGroupToNewsletter = function(params) {
 	try {
-		return post(baseURL + 'create/recipient/', serialize(params))
+		return this.post(this.host + '/de/api/set/grouptonewsletter/', this.serialize(params))
 	} catch (e) {
 		WAKTOOLS.log(e);
-		return e;		
+		return e;
 	}
 };
 
 
-/**
- * delete receipent
- * @param params {Object} parameter object
- * @return       {Object} API response object
- */
- 
-var deleteRecipient = function(params) {
-	try {
-		return post(baseURL + 'create/recipient/', serialize(params))
-	} catch (e) {
-		WAKTOOLS.log(e);
-		return e;		
-	}
-};
-
-
-exports.sendEmail                     = sendEmail;
-exports.createNewsletter              = createNewsletter;
-exports.setGroupToNewsletter          = setGroupToNewsletter;
-exports.getGroupsByNewsletter         = getGroupsByNewsletter;
-exports.deleteAllGroupsFromNewsletter = deleteAllGroupsFromNewsletter;
-exports.sendNewsletter                = sendNewsletter;
-exports.getStatistics                 = getStatistics;
-exports.createRecipient               = createRecipient;
-exports.deleteRecipient               = deleteRecipient;
+exports.Newsletter2Go = Newsletter2Go;
