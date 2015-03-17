@@ -23,11 +23,7 @@ Newsletter2Go = function(key) {
  
 Newsletter2Go.prototype.createNewsletter = function(params) {
 	try {
-<<<<<<< HEAD
 		return this.post(this.host + '/de/api/create/newsletter/', this.serialize(params));
-=======
-		return this.post(this.host + '/de/api/create/newsletter/', this.serialize(params))
->>>>>>> 98d438e08875fcca85ea24fff8d35cf6ae5d381d
 	} catch (e) {
 		WAKTOOLS.log(e);
 		return e;
@@ -43,11 +39,7 @@ Newsletter2Go.prototype.createNewsletter = function(params) {
  
 Newsletter2Go.prototype.createRecipient = function(params) {
 	try {
-<<<<<<< HEAD
 		return this.post(this.host + '/de/api/create/recipient/', this.serialize(params));
-=======
-		return this.post(this.host + '/de/api/create/recipient/', this.serialize(params))
->>>>>>> 98d438e08875fcca85ea24fff8d35cf6ae5d381d
 	} catch (e) {
 		WAKTOOLS.log(e);
 		return e;
@@ -63,11 +55,7 @@ Newsletter2Go.prototype.createRecipient = function(params) {
  
 Newsletter2Go.prototype.deleteAllGroupsFromNewsletter = function(params) {
 	try {
-<<<<<<< HEAD
 		return this.post(this.host + '/de/api/delete/allgroupsfromnewsletter/', this.serialize(params));
-=======
-		return this.post(this.host + '/de/api/delete/allgroupsfromnewsletter/', this.serialize(params))
->>>>>>> 98d438e08875fcca85ea24fff8d35cf6ae5d381d
 	} catch (e) {
 		WAKTOOLS.log(e);
 		return e;
@@ -83,11 +71,7 @@ Newsletter2Go.prototype.deleteAllGroupsFromNewsletter = function(params) {
  
 Newsletter2Go.prototype.deleteRecipient = function(params) {
 	try {
-<<<<<<< HEAD
 		return this.post(this.host + '/de/api/create/recipient/', this.serialize(params));
-=======
-		return this.post(this.host + '/de/api/create/recipient/', this.serialize(params))
->>>>>>> 98d438e08875fcca85ea24fff8d35cf6ae5d381d
 	} catch (e) {
 		WAKTOOLS.log(e);
 		return e;
@@ -103,11 +87,7 @@ Newsletter2Go.prototype.deleteRecipient = function(params) {
  
 Newsletter2Go.prototype.getGroups = function(params) {
 	try {
-<<<<<<< HEAD
 		return this.post(this.host + '/de/api/get/groups/', this.serialize(params));
-=======
-		return this.post(this.host + '/de/api/get/groups/', this.serialize(params))
->>>>>>> 98d438e08875fcca85ea24fff8d35cf6ae5d381d
 	} catch (e) {
 		WAKTOOLS.log(e);
 		return e;		
@@ -123,11 +103,7 @@ Newsletter2Go.prototype.getGroups = function(params) {
  
 Newsletter2Go.prototype.getGroupsByNewsletter = function(params) {
 	try {
-<<<<<<< HEAD
 		return this.post(this.host + '/de/api/get/groupsbynewsletter/', this.serialize(params));
-=======
-		return this.post(this.host + '/de/api/get/groupsbynewsletter/', this.serialize(params))
->>>>>>> 98d438e08875fcca85ea24fff8d35cf6ae5d381d
 	} catch (e) {
 		WAKTOOLS.log(e);
 		return e;
@@ -136,24 +112,14 @@ Newsletter2Go.prototype.getGroupsByNewsletter = function(params) {
 
 
 /**
-<<<<<<< HEAD
  * get all recipients
-=======
- * get newsletter
->>>>>>> 98d438e08875fcca85ea24fff8d35cf6ae5d381d
  * @param params {Object} parameter object
  * @return       {Object} API response object
  */
  
-<<<<<<< HEAD
 Newsletter2Go.prototype.getRecipients = function(params) {
 	try {
 		return this.post(this.host + '/de/api/get/recipients/', this.serialize(params));
-=======
-Newsletter2Go.prototype.getNewsletter = function(params) {
-	try {
-		return this.post(this.host + '/de/api/get/newsletter/', this.serialize(params))
->>>>>>> 98d438e08875fcca85ea24fff8d35cf6ae5d381d
 	} catch (e) {
 		WAKTOOLS.log(e);
 		return e;
@@ -162,16 +128,11 @@ Newsletter2Go.prototype.getNewsletter = function(params) {
 
 
 /**
-<<<<<<< HEAD
  * get newsletter
-=======
- * get all newsletters
->>>>>>> 98d438e08875fcca85ea24fff8d35cf6ae5d381d
  * @param params {Object} parameter object
  * @return       {Object} API response object
  */
  
-<<<<<<< HEAD
 Newsletter2Go.prototype.getNewsletter = function(params) {
 	try {
 		return this.post(this.host + '/de/api/get/newsletter/', this.serialize(params));
@@ -194,14 +155,6 @@ Newsletter2Go.prototype.getNewsletters = function(params) {
 	} catch (e) {
 		WAKTOOLS.log(e);
 		return e;
-=======
-Newsletter2Go.prototype.getNewsletters = function(params) {
-	try {
-		return this.post(this.host + '/de/api/get/newsletters/', this.serialize(params))
-	} catch (e) {
-		WAKTOOLS.log(e);
-		return e;
->>>>>>> 98d438e08875fcca85ea24fff8d35cf6ae5d381d
 	}
 };
 
@@ -214,11 +167,7 @@ Newsletter2Go.prototype.getNewsletters = function(params) {
  
 Newsletter2Go.prototype.getStatistics = function(params) {
 	try {
-<<<<<<< HEAD
 		return this.post(this.host + '/de/api/get/statistics/', this.serialize(params));
-=======
-		return this.post(this.host + '/de/api/get/statistics/', this.serialize(params))
->>>>>>> 98d438e08875fcca85ea24fff8d35cf6ae5d381d
 	} catch (e) {
 		WAKTOOLS.log(e);
 		return e;
@@ -235,7 +184,6 @@ Newsletter2Go.prototype.getStatistics = function(params) {
  
 Newsletter2Go.prototype.post = function(url, params) {
 	try {
-<<<<<<< HEAD
 	    if (os.isWindows) {
     		var http = new XMLHttpRequest({host: __CONFIG.PROXY_HOST, port: __CONFIG.PROXY_PORT}),
     		    url = url + '?' + params,
@@ -268,25 +216,6 @@ Newsletter2Go.prototype.post = function(url, params) {
 	        
 	        return result;
 	    };
-=======
-		var http = new XMLHttpRequest(),
-			result;
-		
-		http.open("POST", url, true);
-		// send the proper header information along with the request
-		http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		http.setRequestHeader("Content-length", params.length);
-		http.setRequestHeader("Connection", "close");
-		// callback function when the state changes.
-		http.onreadystatechange = function() { 
-		    if (http.readyState == 4 && http.status == 200) {
-		        result = JSON.parse(http.response);
-		    }
-		};
-		http.send(params);
-		
-		return result;
->>>>>>> 98d438e08875fcca85ea24fff8d35cf6ae5d381d
 	} catch (e) {
 		WAKTOOLS.log(e);
 		return e;
@@ -302,11 +231,7 @@ Newsletter2Go.prototype.post = function(url, params) {
  
 Newsletter2Go.prototype.sendEmail = function(params) {
 	try {
-<<<<<<< HEAD
 		return this.post(this.host + '/de/api/send/email/', this.serialize(params));
-=======
-		return this.post(this.host + '/de/api/send/email/', this.serialize(params))
->>>>>>> 98d438e08875fcca85ea24fff8d35cf6ae5d381d
 	} catch (e) {
 		WAKTOOLS.log(e);
 		return e;
@@ -322,66 +247,14 @@ Newsletter2Go.prototype.sendEmail = function(params) {
  
 Newsletter2Go.prototype.sendNewsletter = function(params) {
 	try {
-<<<<<<< HEAD
 		return this.post(this.host + '/de/api/send/newsletter/', this.serialize(params));
 	} catch (e) {
 		WAKTOOLS.log(e);
 		return e;
-=======
-		return this.post(this.host + '/de/api/send/newsletter/', this.serialize(params))
-	} catch (e) {
-		WAKTOOLS.log(e);
-		return e;
 	}
 };
 
 
-/**
- * serialize parameter object
- * @param params {Object} parameter object
- * @return       {String} serialized parameter string
- */
-
-Newsletter2Go.prototype.serialize = function(params) {
-	try {
-		var str = [],
-			params = params || {};
-
-		// add api key to params
-		params.key = this.key;
-		// traverse object
-		for(var p in params) {
-			if (params.hasOwnProperty(p)) {
-				str.push(encodeURIComponent(p) + "=" + encodeURIComponent(params[p]));
-			}
-		}
-			
-		return str.join("&");
-	} catch (e) {
-		WAKTOOLS.log(e);
-		return e;
-	}
-};
-
-
-/**
- * set group to newsletter
- * @param params {Object} parameter object
- * @return       {Object} API response object
- */
- 
-Newsletter2Go.prototype.setGroupToNewsletter = function(params) {
-	try {
-		return this.post(this.host + '/de/api/set/grouptonewsletter/', this.serialize(params))
-	} catch (e) {
-		WAKTOOLS.log(e);
-		return e;
->>>>>>> 98d438e08875fcca85ea24fff8d35cf6ae5d381d
-	}
-};
-
-
-<<<<<<< HEAD
 /**
  * serialize parameter object
  * @param params {Object} parameter object
@@ -484,6 +357,4 @@ var execute = function(command, stdIn){
 }
 
 
-=======
->>>>>>> 98d438e08875fcca85ea24fff8d35cf6ae5d381d
 exports.Newsletter2Go = Newsletter2Go;
